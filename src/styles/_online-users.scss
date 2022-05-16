@@ -1,0 +1,32 @@
+.online-users-counter {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: $primary;
+    text-shadow: $primary 0px 0px 4px;
+}
+
+.online-users {
+    max-height: 500px;
+    color: white;
+    font-weight: 500;
+    overflow: auto;
+    width: 100%;
+
+    .online-user {
+        gap: 10px;
+        background-color: $primary;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        padding: 10px;
+        display: inline-block;
+
+        .photo {
+            width: 45px;
+            height: inherit;
+        }
+
+        & > * {
+            display: inline-flex;
+        }
+    }
+}

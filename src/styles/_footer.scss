@@ -1,0 +1,18 @@
+.footer {
+    background-color: rgba($primary, 0.5);
+    justify-content: center;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+
+    border-radius: 10px;
+    align-items: center;
+
+    .btn {
+        color: white;
+        border: none;
+    }
+}

@@ -1,0 +1,16 @@
+# Editor folders
+.vscode
+
+# Ignore package folders
+/node_modules
+
+# Ignore build folder
+/build
+/src/public/css
+
+# Ignore enviroment files
+.env
+.ent.test
+
+# Ignore file formats
+*.log

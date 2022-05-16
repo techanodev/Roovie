@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head'); %>
+    </head>
+    <body>
+        <%- include('../layouts/headers'); %>
+
+        <div class="container">
+            <div class="vstack content gap-2">
+                <%- include('../components/player') %>
+
+                <div class="hstack">
+                    <%- include('../components/users') %>
+                    <div class="w-100"></div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('../layouts/footer'); %>
+    </body>
+</html>
