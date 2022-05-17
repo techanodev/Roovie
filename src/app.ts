@@ -13,6 +13,12 @@ const io = new Server(server);
 
 const users: { [socketId: string]: UserI } = {};
 
+const sendMovies = (socket: Socket) => {
+    Movie.find({}).then((movies) => {
+        socket.emit("movies", movies);
+    });
+};
+
 io.on("connection", (socket: Socket) => {
     console.log("a user connected to server");
     users[socket.id] = { avatar: "/avatars/file1.jpg", name: socket.id };
@@ -30,6 +36,8 @@ io.on("connection", (socket: Socket) => {
         delete users[socket.id];
     });
 
+    sendMovies(socket);
+
     socket.on(
         "add-movie",
         async (movieData: IMovie, callback: (msg: string) => void) => {
@@ -37,6 +45,7 @@ io.on("connection", (socket: Socket) => {
                 const movie = new Movie(movieData);
                 await movie.save();
                 callback("your movie has been saved");
+                sendMovies(socket);
             } catch (e) {
                 callback((e as MongooseError).message);
             }
