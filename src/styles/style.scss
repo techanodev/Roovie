@@ -1,9 +1,21 @@
 $primary: #c100fb;
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 800px,
+    xl: 850px,
+    xxl: 860px,
+);
 
 @import "../../node_modules/mdb-ui-kit/src/scss/mdb.free.scss";
 @import "./footer";
 @import "./player";
 @import "./online-users";
+@import "./update-profile";
+
+body {
+    min-height: 150vh;
+}
 
 .container {
     margin-top: 24px;

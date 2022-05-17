@@ -1,0 +1,27 @@
+<div class="update-profile hstack gap-2">
+    <input
+        type="text"
+        class="form-control w-100"
+        placeholder="Your display name"
+    />
+    <button class="btn btn-primary">Update</button>
+</div>
+<div class="hstack gap-2 avatars">
+    <% for (var i =0; i <=4; i++ ) { %>
+    <div class="col text-center">
+        <input
+            type="radio"
+            name="imgbackground"
+            id="avatar-<%- i%>"
+            class="d-none imgbgchk"
+            value="avatar-<%- i%>"
+        />
+        <label for="avatar-<%- i%>">
+            <img src="/avatars/file<%- i%>.jpg" alt="" />
+            <div class="tick_container">
+                <div class="tick"><i class="fa fa-check"></i></div>
+            </div>
+        </label>
+    </div>
+    <%# will output the numbers 1-10 %> <% } %>
+</div>
