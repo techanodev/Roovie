@@ -7,6 +7,7 @@ $container-max-widths: (
     xxl: 860px,
 );
 
+@import "../../node_modules/toastify-js/src/toastify.css";
 @import "../../node_modules/mdb-ui-kit/src/scss/mdb.free.scss";
 @import "./footer";
 @import "./player";
@@ -29,4 +30,19 @@ body {
             height: 100%;
         }
     }
+}
+
+.tab-text {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: $primary;
+    text-shadow: $primary 0px 0px 4px;
+}
+
+.roovie-toast {
+    background: linear-gradient(
+        135deg,
+        rgba($primary, 0.5),
+        $primary
+    ) !important;
 }

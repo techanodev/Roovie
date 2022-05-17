@@ -4,6 +4,8 @@ import path from "path";
 import http from "http";
 import { Server, Socket } from "socket.io";
 import { UserI } from "./types/users.d";
+import { connect, MongooseError } from "mongoose";
+import Movie, { IMovie } from "./models/movies.models";
 
 const app = express();
 const server = http.createServer(app);
@@ -27,6 +29,19 @@ io.on("connection", (socket: Socket) => {
         console.log(`${name} left the socket.`);
         delete users[socket.id];
     });
+
+    socket.on(
+        "add-movie",
+        async (movieData: IMovie, callback: (msg: string) => void) => {
+            try {
+                const movie = new Movie(movieData);
+                await movie.save();
+                callback("your movie has been saved");
+            } catch (e) {
+                callback((e as MongooseError).message);
+            }
+        }
+    );
 });
 
 app.set("view engine", "ejs");
@@ -43,6 +58,7 @@ app.get("/", function (req, res) {
 const host = process.env.host || "0.0.0.0";
 const port = Number.parseInt(process.env.port || "3000");
 
-server.listen(port, host, () => {
+server.listen(port, host, async () => {
+    await connect("mongodb://localhost:27017/roovie-opensource");
     console.log(`listen on http//${host}:${port}`);
 });

@@ -2,19 +2,19 @@ import "mdb-ui-kit";
 import "jquery";
 import { io } from "socket.io-client";
 import $ from "jquery";
+import Toastify from "toastify-js";
 
 var socket = io();
 
-$(".update-profile").on("submit", (e) => {
-    e.preventDefault();
-    const data = {};
-    const serialize = $(".update-profile").serializeArray();
-    for (let i = 0; i < serialize.length; i++) {
-        const element = serialize[i];
-        data[element.name] = element.value;
-    }
-    socket.emit("update-profile", data);
-});
+const showToast = (text) => {
+    Toastify({
+        text,
+        duration: 3000,
+        stopOnFocus: true,
+        close: true,
+        className: "roovie-toast",
+    }).showToast();
+};
 
 const addUser = (user) => {
     var onlineUser = document.createElement("DIV");
@@ -33,6 +33,12 @@ const addUser = (user) => {
     return onlineUser;
 };
 
+const addMovieRequest = (data) => {
+    socket.emit("add-movie", data, (msg) => {
+        showToast(msg);
+    });
+};
+
 socket.on("users", (users) => {
     $(".online-users").html("");
     for (const socketId in users) {
@@ -41,4 +47,26 @@ socket.on("users", (users) => {
             $(".online-users").append(addUser(user));
         }
     }
+});
+
+$(".update-profile").on("submit", (e) => {
+    e.preventDefault();
+    const data = {};
+    const serialize = $(".update-profile").serializeArray();
+    for (let i = 0; i < serialize.length; i++) {
+        const element = serialize[i];
+        data[element.name] = element.value;
+    }
+    socket.emit("update-profile", data);
+});
+
+$(".movie-form").on("submit", (e) => {
+    e.preventDefault();
+    const data = {};
+    const serialize = $(".movie-form").serializeArray();
+    for (let i = 0; i < serialize.length; i++) {
+        const element = serialize[i];
+        data[element.name] = element.value;
+    }
+    addMovieRequest(data);
 });
