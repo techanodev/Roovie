@@ -2,10 +2,11 @@
   "name": "roovie-opensource",
   "scripts": {
     "sass": "sass ./src/styles/style.scss ./src/public/css/style.css",
+    "javascript": "npx webpack",
     "sass-watch": "sass ./src/styles/style.scss ./src/public/css/style.css -w",
-    "javascript": "babel src -d lib",
-    "rollup": "./node_modules/.bin/rollup -c",
-    "dev": "nodemon --traceResolution"
+    "dev": "nodemon",
+    "build": "tsc",
+    "start": "node ./build/app.js"
   },
   "version": "1.0.0",
   "main": "src/app.ts",

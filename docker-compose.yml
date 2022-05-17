@@ -1,0 +1,13 @@
+version: "3"
+services:
+  roovie_service:
+    restart: always
+    build: .
+    ports:
+      - "10677:3000"
+    links:
+      - mongo
+  mongo:
+    image: mongo
+    volumes:
+      - ./data:/data/db
