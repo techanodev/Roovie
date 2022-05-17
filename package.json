@@ -4,7 +4,8 @@
     "sass": "sass ./src/styles/style.scss ./src/public/css/style.css",
     "sass-watch": "sass ./src/styles/style.scss ./src/public/css/style.css -w",
     "javascript": "babel src -d lib",
-    "rollup": "./node_modules/.bin/rollup -c"
+    "rollup": "./node_modules/.bin/rollup -c",
+    "dev": "nodemon --traceResolution"
   },
   "version": "1.0.0",
   "main": "src/app.ts",
@@ -21,6 +22,7 @@
     "mdb-ui-kit": "^4.0.0",
     "rollup-plugin-babel": "^4.4.0",
     "socket.io": "^4.5.0",
+    "socket.io-client": "^4.5.0",
     "uglify-js": "^3.15.5"
   },
   "devDependencies": {

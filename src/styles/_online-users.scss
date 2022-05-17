@@ -13,7 +13,6 @@
     width: 100%;
 
     .online-user {
-        gap: 10px;
         background-color: $primary;
         border-radius: 10px;
         margin-bottom: 10px;
@@ -23,6 +22,7 @@
         .photo {
             width: 45px;
             height: inherit;
+            margin-inline-end: 10px;
         }
 
         & > * {

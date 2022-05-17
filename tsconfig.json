@@ -7,6 +7,8 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
+    "moduleResolution": "node",
+    "strict": true,
     "allowSyntheticDefaultImports": true,
   },
   "include": [
@@ -14,6 +16,7 @@
   ],
   "exclude": [
     "node_modules",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "**/*.d.ts"
   ]
 }
