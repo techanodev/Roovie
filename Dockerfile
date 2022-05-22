@@ -7,12 +7,10 @@ RUN yarn install --frozen-lockfile
 
 COPY . /app
 
-RUN yarn sass
 RUN yarn javascript
-RUN yarn build
-RUN cp -r ./src/views ./build/views
+RUN yarn gulp
 
-EXPOSE 8000
+EXPOSE 3000
 
 ENTRYPOINT ["yarn"]
 

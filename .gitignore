@@ -8,8 +8,8 @@
 
 # Ignore build folder
 /build
-/public/css
-/public/js
+/src/public/css
+/src/public/js
 
 # Ignore enviroment files
 .env

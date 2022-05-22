@@ -7,8 +7,6 @@ import { UserI } from "./types/users.d";
 import { connect, MongooseError } from "mongoose";
 import Movie, { IMovie } from "./models/movies.models";
 
-const absPath = path.resolve("./").split("\\").join("/");
-
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
@@ -58,7 +56,7 @@ io.on("connection", (socket: Socket) => {
 app.set("view engine", "ejs");
 
 app.use(cors());
-app.use(express.static(path.join(absPath, "/public")));
+app.use(express.static(path.join(__dirname, "/public")));
 
 app.set("views", path.join(__dirname, "/views/pages"));
 
