@@ -1,0 +1,13 @@
+$size: 100px;
+
+.avatar {
+    &.checkbox {
+        width: $size;
+        height: $size;
+        position: relative;
+        border-radius: 50%;
+        object-fit: cover;
+        overflow: hidden;
+        min-width: unset;
+    }
+}
