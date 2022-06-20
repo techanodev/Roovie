@@ -1,20 +1,11 @@
-import type { NextPage } from "next";
-import { Box, Stack } from "@mui/material";
-import { Swiper } from "swiper/react";
-import UpdateProfile from "../components/UpdateProfile";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
-const Home: NextPage = () => {
-    return (
-        <Box>
-            <Stack direction="column">
-                <UpdateProfile />
-                <video className="video" controls />
-                <Swiper></Swiper>
-
-                <Stack></Stack>
-            </Stack>
-        </Box>
-    );
-};
-
-export default Home;
+export default function Home() {
+    const { push } = useRouter();
+    useEffect(() => {
+        push(`/${uuidv4()}`);
+    }, [push]);
+    return <></>;
+}

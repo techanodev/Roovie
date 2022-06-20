@@ -1,13 +1,13 @@
-$size: 100px;
+$size: 56px;
 
 .avatar {
     &.checkbox {
-        width: $size;
+        min-width: $size;
         height: $size;
+        padding: 0;
         position: relative;
         border-radius: 50%;
         object-fit: cover;
         overflow: hidden;
-        min-width: unset;
     }
 }

@@ -1,0 +1,14 @@
+.update-profile {
+    .text-input .MuiOutlinedInput-root {
+        border-radius: 28px;
+        padding: 0;
+        gap: 16px;
+
+        .btn {
+            border-radius: 28px;
+            padding: 0 16px 0 32px;
+            padding-inline-end: 32px;
+            height: 56px;
+        }
+    }
+}
